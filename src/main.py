@@ -9,5 +9,5 @@ app = FastAPI()
 async def fetch_rss(url: str):
     HttpUrl(url)
     page = await StealthyFetcher.async_fetch(url=url)
-    data = page.html_content
+    data = page.body
     return Response(content=data, media_type="application/rss+xml")
